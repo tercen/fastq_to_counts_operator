@@ -67,6 +67,7 @@ system2(cmd, args)
 
 salmon_quant <- read.delim(paste(out.filename, 'quant.sf', sep = '/'))
 
-(ctx = salmon_quant %>%
+salmon_quant %>%
+  mutate(.ci = rep_len(0, nrow(.))) %>%
   ctx$addNamespace() %>%
-  ctx$save())
+  ctx$save()
