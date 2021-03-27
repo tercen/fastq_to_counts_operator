@@ -1,8 +1,8 @@
 library(tercen)
 library(dplyr)
 
-options("tercen.workflowId" = "994a884b38f62643bc46779ff4006817")
-options("tercen.stepId"     = "87257e37-de66-48e7-8a7d-ece2881d041f")
+options("tercen.workflowId" = "74a523a114ef1230f3c7b957d100548e")
+options("tercen.stepId"     = "3dba352f-51be-4213-a7d6-a9a42de5a174")
 
 getOption("tercen.workflowId")
 getOption("tercen.stepId")
@@ -12,9 +12,9 @@ ctx = tercenCtx()
 
 if (!any(ctx$cnames == "documentId")) stop("Column factor documentId is required") 
 
-if (length(df$documentId) > 2) stop("Can only have one documentID if single-ended or two if paired-ended sequencing") 
-
 df <- ctx$cselect()
+
+if (length(df$documentId) > 2) stop("Can only have one documentID if single-ended or two if paired-ended sequencing") 
 
 if (length(df$documentId) == 2) {
   
