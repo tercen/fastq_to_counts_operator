@@ -32,7 +32,7 @@ if (length(df$documentId) == 2) {
   
   out.filename = tempfile()
   
-  cmd = 'salmon'
+  cmd = '/salmon-latest_linux_x86_64/bin/salmon'
   args = paste('quant',
                '-i', 'hsapiens_index', 
                '-l A',
@@ -52,7 +52,7 @@ if (length(df$documentId) == 2) {
   
   out.filename = tempfile()
   
-  cmd = 'salmon'
+  cmd = '/salmon-latest_linux_x86_64/bin/salmon'
   args = paste('quant',
                '-i', 'hsapiens_index', 
                '-l A',
