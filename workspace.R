@@ -14,7 +14,14 @@ if (!any(ctx$cnames == "documentId")) stop("Column factor documentId is required
 
 df <- ctx$cselect()
 
-if (length(df$documentId) > 2) stop("Can only have one documentID if single-ended or two if paired-ended sequencing") 
+is_paired_end <- as.character(ctx$op.value('paired_end'))
+
+if (is_paired_end == "yes") {
+  if (length(df$documentId) != 2) stop("Must have two documentID if paired-ended sequencing") 
+} else {
+  if (length(df$documentId) != 1) stop("Must have only one documentID if single-ended sequencing") 
+}
+
 
 if (length(df$documentId) == 2) {
   
