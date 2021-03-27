@@ -1,30 +1,19 @@
 {
-  "name": "Template R operator",
-  "description": "Return the medium value of a cell",
-  "tags": ["template"],
+  "name": "fastq_to_counts",
+  "description": "Perform count quantification on fastq files with Salmon",
+  "tags": ["genomics", "transcriptomics", "rna-seq", "fastq"],
   "authors": ["tercen"],
-  "urls": ["https://github.com/tercen/template_R_operator"],
+  "urls": ["https://github.com/tercen/fastq_to_counts_operator"],
   "properties": [
-   {
-    "kind": "StringProperty",
-    "name": "string_example",
-    "defaultValue": "example",
-    "description": "description parameter 1"
-    },
     {
     "kind": "EnumeratedProperty",
-    "name": "list_example",
-    "defaultValue": "value1",
+    "name": "paired_end",
+    "defaultValue": "yes",
     "values": [
-      "value1",
-      "StringProperty",
-      "DoubleProperty",
-      "BooleanProperty",
-      "EnumeratedProperty"
-    ],
-    "description": "description parameter 2"
+      "yes",
+      "no"    ],
+    "description": "Is the sequencing paired end?"
   }
   ]
 }
-
 
