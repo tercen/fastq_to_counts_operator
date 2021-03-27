@@ -27,7 +27,7 @@ if (length(df$documentId) == 2) {
   
   cmd = '/salmon-latest_linux_x86_64/bin/salmon'
   args = paste('quant',
-               '-i', 'hsapiens_index', 
+               '-i', '/hsapiens_index', 
                '-l A',
                '-1', filename_r1,
                '-2', filename_r2,
@@ -47,7 +47,7 @@ if (length(df$documentId) == 2) {
   
   cmd = '/salmon-latest_linux_x86_64/bin/salmon'
   args = paste('quant',
-               '-i', 'hsapiens_index', 
+               '-i', '/hsapiens_index', 
                '-l A',
                '-r', filename,
                '-p', parallel::detectCores(),
