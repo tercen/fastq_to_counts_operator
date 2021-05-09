@@ -1,50 +1,37 @@
-# Template R operator
-
-The `Template R operator` is a template repository for the creation of R operators in Tercen. An overview of steps for developing an operator are:
-
-1. create a github repo
-2. install tercen_studio
-3. login to tercen_studio
-4. git clone the newly created repo
-5. start developing in R in tercen_studio
-6. add R packages to the repo
-7. push to the github repo
-8. go to tercen and install the operator
-
-More information can be found in [Tercen app builder's guide](https://tercen.github.io/appbuilders-guide/).
-
-Below is the operator README standard structure:
+# Quantify gene expression from counts with Salmon
 
 ##### Description
-
-The `Template R operator` is a template repository for the creation of R operators in Tercen.
+`FastQ to Counts` takes in fastq files from one RNA-seq sample and processes them using Salmon. It then outputs the gene expression levels for each _H. sapiens_ gene.
 
 ##### Usage
 
-Input projection|.
+Input projection| Description
 ---|---
-`x-axis`        | type, description 
-`y-axis`        | type, description 
-`row`           | type, description 
-`column`        | type, description 
-`colors`        | type, description 
-`labels`        | type, description 
+`column names`   | character, documentId corresponding to the files to quantify
 
-Input parameters|.
----|---
-`input_var`        | parameter description
 
-Output relations|.
+| Input parameters           | Description                                                                                 |
+| -------------------------- | ------------------------------------------------------------------------------------------- |
+| `paired-end`                | "yes" or "no", specifying whether the sequencing was paired end or not |
+
+
+Output relations| Description
 ---|---
-`output_var`        | output relation
-`Operator view`        | view of the Shiny application
+`Name` | character, the Ensembl transcript ID
+`Length`                | numeric, the length of the transcript
+`EffectiveLength`                | numeric, the effective transcript length
+`TPM` | numeric, the number of transcripts per million reads
+`NumReads` | numeric, salmon’s estimate of the number of reads mapping to each transcript
 
 ##### Details
+The output relations let can then be combined with other samples to perform analysis using the DESeq2 operator or the single-cell RNA-seq operators.
 
-Details on the computation.
+
+#### References
+Patro, R., Duggal, G., Love, M. I., Irizarry, R. A., & Kingsford, C. (2017). Salmon provides fast and bias-aware quantification of transcript expression. Nature Methods.
+
+["Salmon website"](https://combine-lab.github.io/salmon/)
 
 ##### See Also
 
-[template_shiny_operator](https://github.com/tercen/template_shiny_operator)
-, [template_docker_operator](https://github.com/tercen/template_docker_operator)
-
+#### Examples
